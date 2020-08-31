@@ -17,7 +17,7 @@ for i = 1:length(bitFrame)
              difManchesterEnc=[difManchesterEnc 0xff];
              difManchesterEnc=[difManchesterEnc 0x00]; 
              lastBit == 0
-          else lastBit == 0
+          else
              difManchesterEnc=[difManchesterEnc 0x00];
              difManchesterEnc=[difManchesterEnc 0xff];
              lastBit == 1
