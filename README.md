@@ -103,10 +103,9 @@ En este proyecto se va a llevar a cabo la construccion de la trama y la generaci
 
 Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada, han sido obtenidos del protocolo [**rtl_433**](https://github.com/merbanan/rtl_433).
 
--- Citroën
+*Citroën*
 
--- Toyota
+*Toyota*
 
-
-
+- Construccion de la señal:
 
