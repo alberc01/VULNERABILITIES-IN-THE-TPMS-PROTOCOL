@@ -3,7 +3,7 @@
 
 En este repositorio se encuentra el código utilizado para generar la señal adecuada para los dispositivos TPMS Citröen y Toyota. Para generar dicha señal se utiliza Matlab para la codificación y Gnu-Radio para la modulación. Para comprobar la viabilidad de transmisión de nuestra señal se utiliza Inspectrum y el protocolo RTL_433.
 
-# Instalación de los entornos
+# Instalación de los diferentes entornos
 **rtl_sdr**
 Rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizara para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
 
@@ -31,7 +31,8 @@ El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rt
     make install
 ````
 **Inspectrum**
-Inspectrum facilita herramientas para poder obtener simbolos de una señal grabada. Se utilizará para comprobar la modulacón de las señales tranmitidas por los sistemas TPMS.
+
+El repositorio oficial de Inspectrum se encutra en https://github.com/miek/inspectrum. Inspectrum facilita herramientas para poder obtener simbolos de una señal grabada. Se utilizará para comprobar la modulacón de las señales tranmitidas por los sistemas TPMS.
 
 *Instalación*
 ````
@@ -47,6 +48,7 @@ Inspectrum facilita herramientas para poder obtener simbolos de una señal graba
     sudo make install
 ````
 **Gnu-Radio**
+
 Gnu-Radio proporciona un amplio kit de herramientas para generar señales. Se utilizará para modular digitalmente los datos provenientes de un archivo binario.
 
 *Instalación*
@@ -54,13 +56,27 @@ Gnu-Radio proporciona un amplio kit de herramientas para generar señales. Se ut
     sudo apt install gnuradio
 ````
 **SoX**
-SoX facilita herramientas para la escritura y lectura de señales de audio. Se utilizará para aumentar la duración de la señal que se generará mediante Gnu-Radio
+
+SoX facilita herramientas para la escritura y lectura de señales de audio. Se utilizará para aumentar la duración de la señal que se generará mediante Gnu-Radio.
 
 *Instalación*
 ````
-sudo apt get install sox
+sudo apt install sox
 ````
-# Obtención de señales 
+**GQRX**
+GQRX permite la escucha de señales en un amplio rango de frecuencias. En el proyecto se utilizará para inspeccionar visualmente las señales TPMS y escuchar el sonido caracteristico de los dispsitivos que transmiten a 433 MHz.
+*Instalación*
+````
+sudo apt update -y
+sudo apt install -y gqrx-sdr
+````
+
+# Analisis de señales 
+
+Mediante GQRX y un dongle SDR se puede inspeccionar el aspecto y el sonido de la señal. La consifguracion que necesita el dongle SDR que utilizaremos será la que se muestra en la siguiente imagen:
+![](../master/imagenes/)
+
+
 
 
 
