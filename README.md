@@ -98,12 +98,14 @@ Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso d
 
 En este proyecto se va a llevar a cabo la construccion de la trama y la generacion de la señal para los dispositivos TPMS pertenecientes a los fabricantes Toyota y Citroën.
 
-    ## Construcción de la trama de datos:
 
-    Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada, han sido obtenidos del protocolo [**rtl_433**](https://github.com/merbanan/rtl_433). 
-        ## Citroën
+-Construcción de la trama de datos:
 
-        ## Toyota
+Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada, han sido obtenidos del protocolo [**rtl_433**](https://github.com/merbanan/rtl_433).
+
+--Citroën
+
+--Toyota
 
 
 
