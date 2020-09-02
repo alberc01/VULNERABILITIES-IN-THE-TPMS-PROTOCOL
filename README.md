@@ -75,7 +75,7 @@ sudo apt install -y gqrx-sdr
 
 Mediante GQRX y un dongle SDR se puede inspeccionar el aspecto y el sonido de la señal. La consifguracion que necesita el dongle SDR que utilizaremos será la que se muestra en la siguiente imagen:
 
-![](../master/images/GQRX_CONFIG.png)
+![](https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png)
 
 
 
