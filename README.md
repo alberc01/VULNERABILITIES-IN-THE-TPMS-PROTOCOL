@@ -85,7 +85,8 @@ La configuracion que necesita el GQRX para poder captar señales mediante el don
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png" height="358" width="211">
 
 
-
+De esta forma si persionamos el bton play de la interfaz de GQRX, el dispositivo SDR comenzará a captar las señales. El siguiente paso será sintonizar la frecuencia 433 MHz, despues de esto, si captamos una señal de tipo TPMS en la interfaz vermos in espectro frecuencia como el siguiente:  
+<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX.png.png" height="500" width="450">
 
 
 
