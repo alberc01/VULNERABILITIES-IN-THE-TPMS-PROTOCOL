@@ -1,12 +1,12 @@
 # TFG UCM 2020
 ## Estudio de la seguridad del protocolo TPMS / Vulnerabilities in the TPMS protocol
 
-En este repositorio se encuentra el codigo utilizado para generar la señal adecuada para los dispositivos TPMS Citröen y Toyota. Para generar dicha señal se utilza Matlab para la codificación y Gnu-Radio para la modulación. Para comprobar la vibilidad de transmision de nuestra señal se utiliza Inspectrum y el protocolo RTL_433.
+En este repositorio se encuentra el código utilizado para generar la señal adecuada para los dispositivos TPMS Citröen y Toyota. Para generar dicha señal se utiliza Matlab para la codificación y Gnu-Radio para la modulación. Para comprobar la viabilidad de transmisión de nuestra señal se utiliza Inspectrum y el protocolo RTL_433.
 
-# Instalacion de los entornos
+# Instalación de los entornos
 **rtl_sdr**
-
-*Instalacion*
+Rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizara para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
+*Instalación *
 ````
 git clone git://git.osmocom.org/rtl-sdr.git
 cd rtl-sdr/ && mkdir build && cd build/
@@ -18,8 +18,7 @@ sudo ldconfig
 **rtl_433**
 
 El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rtl_433.git, este software de codigo abierto mediante el uso de un dispositivo SDR permite demodular y decodificar señales en un amplio rango de frecuencias. En este proyecto se utiliza con el fin de comprobar la validez de la señal que se generará con Gnu_Radio y para poder ver los datos transmitidos por los sistemas TPMS.
-
-*Instalacion*
+*Instalación *
 ````
     git clone https://github.com/merbanan/rtl_433.git
     cd rtl_433/
@@ -30,8 +29,8 @@ El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rt
     make install
 ````
 **Inspectrum**
-
-*Instalacion*
+Inspectrum facilita herramientas para poder obtener simbolos de una señal grabada. Se utilizará para comprobar la modulacón de las señales tranmitidas por los sistemas TPMS.
+*Instalación *
 ````
     sudo apt-get update -y
     sudo apt-get install qt5-default libfftw3-dev cmake pkg-config libliquid-dev 
@@ -45,23 +44,18 @@ El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rt
     sudo make install
 ````
 **Gnu-Radio**
-
-*Instalacion*
+Gnu-Radio proporciona un amplio kit de herramientas para generar señales. Se utilizará para modular digitalmente los datos provenientes de un archivo binario.
+*Instalación *
 ````
     sudo apt install gnuradio
 ````
-**Python 3**
-
-*Instalacion*
-````
-sudo apt install python3.8
-````
 **SoX**
-
-*Instalacion*
+SoX facilita herramientas para la escritura y lectura de señales de audio. Se utilizará para aumentar la duración de la señal que se generará mediante Gnu-Radio
+*Instalación *
 ````
 sudo apt get install sox
 ````
+# Obtención de señales 
 
 
-# Obtenición de señales 
+
