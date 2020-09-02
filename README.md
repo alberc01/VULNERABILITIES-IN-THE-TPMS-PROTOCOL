@@ -98,7 +98,11 @@ Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso d
 
 En este proyecto se va a llevar a cabo la construccion de la trama y la generacion de la señal para los dispositivos TPMS pertenecientes a los fabricantes Toyota y Citroën.
 
-### Construcción de la trama de datos:
+## Construcción de la trama de datos:
+
+## Citroën
+
+## Toyota
 
 
 
