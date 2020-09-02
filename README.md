@@ -80,7 +80,7 @@ El dongle SDR que se ha utilizado para poder realizar el proyecto es como el rep
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/dongle.jpg" height="200" width="200">
 
     
-La configuración que necesita el GQRX para poder captar señales mediante el dongle SDR que utilizaremos será la que se muestra en la siguiente imagen:
+La configuración que necesita el GQRX para poder captar señales mediante el dongle SDR será la que se muestra en la siguiente imagen:
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png" height="358" width="211">
 
@@ -101,7 +101,7 @@ En este proyecto se va a llevar a cabo la construccion de la trama y la generaci
 
 - Construcción de la trama de datos:
 
-Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada, han sido obtenidos del protocolo [**rtl_433**](https://github.com/merbanan/rtl_433).
+Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada han sido obtenidos del protocolo [**rtl_433**](https://github.com/merbanan/rtl_433).
 
 **Citroën**
 
