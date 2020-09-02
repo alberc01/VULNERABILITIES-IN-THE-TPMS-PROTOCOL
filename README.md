@@ -77,11 +77,11 @@ Mediante GQRX y un dongle SDR se puede inspeccionar el aspecto y el sonido de la
 
 El songle SDR que se ha utilizado para poder realizar el proyecto es como el representado en la siguiente imagen:
 
-    ![SDR Dongle](https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/dongle.jpg=100x20)
+    ![SDR Dongle](./Images/dongle.jpg)
     
 La configuracion que necesita el GQRX para poder captar señales mediante el dongle SDR que utilizaremos será la que se muestra en la siguiente imagen:
 
-    ![GQRX Configuration](https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png=100x20)
+    ![GQRX Configuration](./Images/GQRX_CONFIG.png)
 
 
 
