@@ -5,6 +5,7 @@ En este repositorio se encuentra el codigo utilizado para generar la señal adec
 
 # Instalacion de los entornos
 **rtl_433**
+````
     git clone https://github.com/merbanan/rtl_433.git
     cd rtl_433/
     mkdir build
@@ -12,6 +13,7 @@ En este repositorio se encuentra el codigo utilizado para generar la señal adec
     cmake ..
     make
     make install
+````
 **Inspectrum**
 **Gnu-Radio**
 **Python**
