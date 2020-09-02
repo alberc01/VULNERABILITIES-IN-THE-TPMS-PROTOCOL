@@ -85,8 +85,17 @@ La configuracion que necesita el GQRX para poder captar señales mediante el don
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png" height="358" width="211">
 
 
-De esta forma si persionamos el bton play de la interfaz de GQRX, el dispositivo SDR comenzará a captar las señales. El siguiente paso será sintonizar la frecuencia 433 MHz, despues de esto, si captamos una señal de tipo TPMS en la interfaz vermos in espectro frecuencia como el siguiente:  
+De esta forma si persionamos el bton play de la interfaz de GQRX, el dispositivo SDR comenzará a captar las señales. El siguiente paso será sintonizar la frecuencia 433 MHz, despues de esto, si captamos una señal de tipo TPMS en la interfaz vermos un espectro frecuencia como el siguiente:  
+
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX.png" height="550" width="750">
+
+Para grabar la señal se puede utilizar GQRX, pero es mas recomendable el uso del protocolo Rtl_433. Por ultimo, con la señal grabada se puede realizar ingenieria inversa y poder obtener la codificacion y la modulacion del dispositivo. La demodulacion se puede hacer mediante Inspectrum, obtiendo como resultado un flujo de bits. Seleccionando el tipo de modulacion y seleccionando el ancho de simbolo se puede obtener un flujo de bits de la siguiente forma:
+
+<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Inspectrum.png" height="550" width="750">
+
+
+
+
 
 
 
