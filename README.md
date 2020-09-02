@@ -7,7 +7,7 @@ En este repositorio se encuentra el código utilizado para generar la señal ade
 **rtl_sdr**
 Rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizara para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
 
-*Instalación *
+*Instalación*
 ````
 git clone git://git.osmocom.org/rtl-sdr.git
 cd rtl-sdr/ && mkdir build && cd build/
@@ -20,7 +20,7 @@ sudo ldconfig
 
 El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rtl_433.git, este software de codigo abierto mediante el uso de un dispositivo SDR permite demodular y decodificar señales en un amplio rango de frecuencias. En este proyecto se utiliza con el fin de comprobar la validez de la señal que se generará con Gnu_Radio y para poder ver los datos transmitidos por los sistemas TPMS.
 
-*Instalación *
+*Instalación*
 ````
     git clone https://github.com/merbanan/rtl_433.git
     cd rtl_433/
@@ -33,7 +33,7 @@ El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rt
 **Inspectrum**
 Inspectrum facilita herramientas para poder obtener simbolos de una señal grabada. Se utilizará para comprobar la modulacón de las señales tranmitidas por los sistemas TPMS.
 
-*Instalación *
+*Instalación*
 ````
     sudo apt-get update -y
     sudo apt-get install qt5-default libfftw3-dev cmake pkg-config libliquid-dev 
@@ -49,14 +49,14 @@ Inspectrum facilita herramientas para poder obtener simbolos de una señal graba
 **Gnu-Radio**
 Gnu-Radio proporciona un amplio kit de herramientas para generar señales. Se utilizará para modular digitalmente los datos provenientes de un archivo binario.
 
-*Instalación *
+*Instalación*
 ````
     sudo apt install gnuradio
 ````
 **SoX**
 SoX facilita herramientas para la escritura y lectura de señales de audio. Se utilizará para aumentar la duración de la señal que se generará mediante Gnu-Radio
 
-*Instalación *
+*Instalación*
 ````
 sudo apt get install sox
 ````
