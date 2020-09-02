@@ -5,6 +5,7 @@ En este repositorio se encuentra el codigo utilizado para generar la señal adec
 
 # Instalacion de los entornos
 **rtl_433**
+
 El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rtl_433.git, este software de codigo abierto mediante el uso de un dispositivo SDR permite demodular y decodificar señales en un amplio rango de frecuencias. En este proyecto se utiliza con el fin de comprobar la validez de la señal que se generará con Gnu_Radio y para poder ver los datos transmitidos por los sistemas TPMS.
 ````
     git clone https://github.com/merbanan/rtl_433.git
