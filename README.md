@@ -76,12 +76,10 @@ sudo apt install -y gqrx-sdr
 Mediante GQRX y un dongle SDR se puede inspeccionar el aspecto y el sonido de la señal.
 
 El songle SDR que se ha utilizado para poder realizar el proyecto es como el representado en la siguiente imagen:
-
-![dongle](../master/Images/dongle.jpg =200x50)
+![](../master/Images/dongle.jpg =200x50)
     
 La configuracion que necesita el GQRX para poder captar señales mediante el dongle SDR que utilizaremos será la que se muestra en la siguiente imagen:
-
- ![gqrx configuration](../master/Images/GQRX_CONFIG.png =200x50)
+![](../master/Images/GQRX_CONFIG.png =200x50)
 
 
 
