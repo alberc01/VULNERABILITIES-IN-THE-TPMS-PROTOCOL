@@ -82,7 +82,7 @@ El songle SDR que se ha utilizado para poder realizar el proyecto es como el rep
     
 La configuracion que necesita el GQRX para poder captar señales mediante el dongle SDR que utilizaremos será la que se muestra en la siguiente imagen:
 
-<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png" height="200" width="300">
+<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png" height="211" width="358">
 
 
 
