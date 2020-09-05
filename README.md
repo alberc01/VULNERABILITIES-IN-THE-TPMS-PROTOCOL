@@ -108,12 +108,20 @@ Los aspectos como el formato de trama de estos dispositivos y la modulación uti
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Toyota-Frame.png">
 
 - Codificación de los datos:
+Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar, obteniendo como resultado un archivo binario con la informacion que se debe pasar a Gnu-Radio para ser modulada.
 
 **Citroën**
-Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar. El dispositivo Citroën utiliza una codificacion Manchester, el codigo de dicha codificacion la podemos encontrar en  el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *CitroenTPMS.m*.
+
+El dispositivo Citroën utiliza una codificacion Manchester, el codigo de dicha codificacion la podemos encontrar en  el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *CitroenTPMS.m*.
 
 **Toyota**
-Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar. El dispositivo Toyota utiliza una codificacion Manchester diferencial, el codigo de dicha codificacion la podemos encontrar en  el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *ToyotaTPMS.m*. Ademas el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
+
+El dispositivo Toyota utiliza una codificacion Manchester diferencial, el codigo de dicha codificacion la podemos encontrar en  el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *ToyotaTPMS.m*. Ademas el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
 
 - Modulación de la señal:
+
+Tras generar la trama codificada con la interfaz de Matlab se debe pasar a modular la señal. La modulacion se realiza con Gnu-Radio y como resultado se obtiene un archivo binario con la informacion de la señal en su interior. El diagrama de bloques que se ha utilizado para generar la señal modulada en FSK se encuentra en *./Gnu-Radio-Block-Diagram/tpms_fsk.gr*.
+
+**Gnu-Radio**
+
 
