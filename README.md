@@ -121,7 +121,7 @@ El dispositivo Toyota utiliza una codificacion Manchester diferencial, el codigo
 
 - Modulación de la señal:
 
-Tras generar la trama codificada con la interfaz de Matlab se debe pasar a modular la señal, siendo la modulacion utilizada para los dos dispositivos FSK. La modulacion se realiza con Gnu-Radio y como resultado se obtiene un archivo binario con la informacion de la señal en su interior. El diagrama de bloques que se ha utilizado para generar la señal modulada en FSK se encuentra en *./Gnu-Radio-Block-Diagram/tpms_fsk.gr*.
+Tras generar la trama codificada con la interfaz de Matlab se debe pasar a modular la señal, siendo la modulacion utilizada para los dos dispositivos FSK. La modulacion se realiza con Gnu-Radio y como resultado se obtiene un archivo binario con la informacion de la señal en su interior. El diagrama de bloques que se ha utilizado para generar la señal modulada en FSK se encuentra en *./Gnu-Radio-Block-Diagram/fsk_modulation.grc*.
 
 **Diagrama de bloques Gnu-Radio**
 
@@ -131,7 +131,7 @@ El diagrama de bloques de Gnu-Radio para la modulación de la señal en FSK esta
 
 -Comprobar la señal con [**rtl_433**](https://github.com/merbanan/rtl_433):
 
-Para comprobar la señal se usara el software rtl_433. Este software propociona la capacidad de demodular señales mostrando la informacion que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavia no es apta para poder ser demodulada por rtl_433, la señal es demasiado rapida por lo que hay que añadir silencio al principio y al final de la señal para que rtl_433 pueda demodularla. Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado  *Sox-Silence.sh* que se encargara de realizar esta funcion, como parametros recibe dos nombres de archivo, el primero sera el archivo con la señal modulada y el segundo será el archivo destino que contendra la señal con el silencio que se busca añadir.
+Para comprobar la señal se usara el software rtl_433. Este software propociona la capacidad de demodular señales mostrando la informacion que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavia no es apta para poder ser demodulada por rtl_433, la señal es demasiado rapida por lo que hay que añadir silencio al principio y al final de la señal para que rtl_433 pueda demodularla. Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado  *./Sox-silence-script/Sox-Silence.sh* que se encargara de realizar esta funcion, como parametros recibe dos nombres de archivo, el primero sera el archivo con la señal modulada y el segundo será el archivo destino que contendra la señal con el silencio que se busca añadir.
 
 Despues de añadir silencio, si inspeccionamos la señal con Inspectrum, la señal debería tener un aspecto como el siguiente:
 
