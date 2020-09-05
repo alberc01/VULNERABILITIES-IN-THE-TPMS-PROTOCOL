@@ -108,6 +108,7 @@ Los aspectos como el formato de trama de estos dispositivos y la modulación uti
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Toyota-Frame.png">
 
 - Codificación de los datos:
+
 Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar, obteniendo como resultado un archivo binario con la informacion que se debe pasar a Gnu-Radio para ser modulada.
 
 **Citroën**
