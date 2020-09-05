@@ -133,6 +133,16 @@ El diagrama de bloques de Gnu-Radio para la modulación de la señal en FSK esta
 
 Para comprobar la señal se usara el software rtl_433. Este software propociona la capacidad de demodular señales mostrando la informacion que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavia no es apta para poder ser demodulada por rtl_433, la señal es demasiado rapida por lo que hay que añadir silencio al principio y al final de la señal para que rtl_433 pueda demodularla. Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado  *Sox-Silence.sh* que se encargara de realizar esta funcion, como parametros recibe dos nombres de archivo, el primero sera el archivo con la señal modulada y el segundo será el archivo destino que contendra la señal con el silencio que se busca añadir.
 
+Despues de añadir silencio, si inspeccionamos la señal con Inspectrum, la señal debería tener un aspecto como el siguiente:
+
+<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Inspectrum_Silence.png" height="550" width="750">
+
+Si pasamos a analizar la señal con rtl_433, en el caso de toyota la informacion que mostrará dependerá de los datos introducidos, pero el formato debería tener un aspecto como el siguiente:
+
+<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/citroen_normal.png" height="550" width="750">
+
+
+
 
 
 
