@@ -139,7 +139,7 @@ Despues de añadir silencio, si inspeccionamos la señal con Inspectrum, la señ
 
 Si pasamos a analizar la señal con rtl_433, en el caso de toyota la informacion que mostrará dependerá de los datos introducidos, pero el formato debería tener un aspecto como el siguiente:
 
-<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/citroen_normal.png" height="550" width="750">
+<img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/citroen_normal.png">
 
 
 
