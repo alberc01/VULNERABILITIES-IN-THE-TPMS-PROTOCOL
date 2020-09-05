@@ -98,7 +98,6 @@ Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso d
 
 En este proyecto se va a llevar a cabo la construccion de la trama y la generacion de la señal para los dispositivos TPMS pertenecientes a los fabricantes Toyota y Citroën.
 
-
 - Construcción de la trama de datos:
 
 Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada han sido obtenidos del protocolo [**rtl_433**](https://github.com/merbanan/rtl_433).
@@ -107,5 +106,14 @@ Los aspectos como el formato de trama de estos dispositivos y la modulación uti
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Citroen-Frame.png">
 **Toyota**
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Toyota-Frame.png">
-- Construcción de la señal:
+
+- Codificación de los datos:
+
+**Citroën**
+Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar. El dispositivo Citroën utiliza una codificacion Manchester, el codigo de dicha codificacion la podemos encontrar en  el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *CitroenTPMS.m*.
+
+**Toyota**
+Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar. El dispositivo Toyota utiliza una codificacion Manchester diferencial, el codigo de dicha codificacion la podemos encontrar en  el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *ToyotaTPMS.m*. Ademas el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
+
+- Modulación de la señal:
 
