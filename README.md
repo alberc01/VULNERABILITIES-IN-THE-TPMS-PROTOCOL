@@ -5,7 +5,7 @@ En este repositorio se encuentra el código utilizado para generar la señal ade
 
 # Instalación de los diferentes entornos
 **rtl_sdr**
-Rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizara para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
+Rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizará para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
 
 *Instalación*
 ````
@@ -64,14 +64,14 @@ SoX facilita herramientas para la escritura y lectura de señales de audio. Se u
 sudo apt install sox
 ````
 **GQRX**
-GQRX permite la escucha de señales en un amplio rango de frecuencias. En el proyecto se utilizará para inspeccionar visualmente las señales TPMS y escuchar el sonido caracteristico de los dispsitivos que transmiten a 433 MHz.
+GQRX permite la escucha de señales en un amplio rango de frecuencias. En el proyecto se utilizará para inspeccionar visualmente las señales TPMS y escuchar el sonido característico de los dispositivos que transmiten a 433 MHz.
 *Instalación*
 ````
 sudo apt update -y
 sudo apt install -y gqrx-sdr
 ````
 
-# Analisis de señales 
+# Análisis de señales 
 
 Mediante GQRX, un dongle SDR y Inspectrum se puede inspeccionar el aspecto y el sonido de la señal y por último obtener el flujo de bits que transmite.
 
@@ -96,7 +96,7 @@ Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso d
 
 # Como generar señales 
 
-En este proyecto se va a llevar a cabo la construccion de la trama y la generacion de la señal para los dispositivos TPMS pertenecientes a los fabricantes Toyota y Citroën.
+En este proyecto se va a llevar a cabo la construcción de la trama y la generación de la señal para los dispositivos TPMS pertenecientes a los fabricantes Toyota y Citroën.
 
 - Construcción de la trama de datos:
 
@@ -109,37 +109,44 @@ Los aspectos como el formato de trama de estos dispositivos y la modulación uti
 
 - Codificación de los datos:
 
-Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar, obteniendo como resultado un archivo binario con la informacion que se debe pasar a Gnu-Radio para ser modulada.
+Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee formar y codificar, obteniendo como resultado un archivo binario con la información que se debe pasar a Gnu-Radio para ser modulada.
 
 **Citroën**
 
-El dispositivo Citroën utiliza una codificacion Manchester, el codigo de dicha codificacion la podemos encontrar en  el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *CitroenTPMS.m*.
+El dispositivo Citroën utiliza una codificación Manchester, el código de dicha codificación la podemos encontrar en el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecución del archivo *CitroenTPMS.m*.
 
 **Toyota**
 
-El dispositivo Toyota utiliza una codificacion Manchester diferencial, el codigo de dicha codificacion la podemos encontrar en  el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecucion del archivo *ToyotaTPMS.m*. Ademas el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
+El dispositivo Toyota utiliza una codificación Manchester diferencial, el código de dicha codificación la podemos encontrar en el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecución del archivo *ToyotaTPMS.m*. Además, el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
 
 - Modulación de la señal:
 
-Tras generar la trama codificada con la interfaz de Matlab se debe pasar a modular la señal, siendo la modulacion utilizada para los dos dispositivos FSK. La modulacion se realiza con Gnu-Radio y como resultado se obtiene un archivo binario con la informacion de la señal en su interior. El diagrama de bloques que se ha utilizado para generar la señal modulada en FSK se encuentra en *./Gnu-Radio-Block-Diagram/fsk_modulation.grc*.
+Tras generar la trama codificada con la interfaz de Matlab se debe pasar a modular la señal, siendo la modulación utilizada para los dos dispositivos FSK. La modulación se realiza con Gnu-Radio y como resultado se obtiene un archivo binario con la información de la señal en su interior. El diagrama de bloques que se ha utilizado para generar la señal modulada en FSK se encuentra en *./Gnu-Radio-Block-Diagram/fsk_modulation.grc*.
 
 **Diagrama de bloques Gnu-Radio**
 
-El diagrama de bloques de Gnu-Radio para la modulación de la señal en FSK esta inspirado en [**TXTPMS**](https://github.com/cdeletre/txtpms)
+El diagrama de bloques de Gnu-Radio para la modulación de la señal en FSK está inspirado en [**TXTPMS**](https://github.com/cdeletre/txtpms)
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/gnu-radio.png" height="550" width="750">
 
 -Comprobar la señal con [**rtl_433**](https://github.com/merbanan/rtl_433):
 
-Para comprobar la señal se usara el software rtl_433. Este software propociona la capacidad de demodular señales mostrando la informacion que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavia no es apta para poder ser demodulada por rtl_433, la señal es demasiado rapida por lo que hay que añadir silencio al principio y al final de la señal para que rtl_433 pueda demodularla. Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado  *./Sox-silence-script/Sox-Silence.sh* que se encargara de realizar esta funcion, como parametros recibe dos nombres de archivo, el primero sera el archivo con la señal modulada y el segundo será el archivo destino que contendra la señal con el silencio que se busca añadir.
+Para comprobar la señal se usará el software rtl_433. Este software proporciona la capacidad de demodular señales mostrando la información que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavía no es apta para poder ser demodulada por rtl_433, la señal es muy rápida y se necesita cierta información previa sobre el muestro para poder demodular/descodificar la señal, por este motivo es necesario añadir silencio al principio y al final de la señal con una frecuencia de muestreo de 250k . Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado *./Sox-silence-script/Sox-Silence.sh* que se encargará de realizar esta función, como parámetros recibe dos nombres de archivo, el primero será el archivo con la señal modulada y el segundo será el archivo destino que contendrá la señal con el silencio que se busca añadir.
 
 Despues de añadir silencio, si inspeccionamos la señal con Inspectrum, la señal debería tener un aspecto como el siguiente:
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Inspectrum_Silence.png" height="550" width="750">
 
-Si pasamos a analizar la señal con rtl_433, en el caso de toyota la informacion que mostrará dependerá de los datos introducidos, pero el formato debería tener un aspecto como el siguiente:
+Si pasamos a analizar la señal con rtl_433, en el caso de Toyota la información que mostrará dependerá de los datos introducidos, pero el formato debería tener un aspecto como el siguiente:
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/citroen_normal.png">
+
+Para finalizar este estudio, se podría llevar a cabo la emisión vía radioeléctrica de la señal que acabamos de generar, para esto se puede utilizar el dispositivo HackRf One. Para saber cómo realizar este proceso, se puede obtener información del repositorio de Ciryl [**TXTPMS**](https://github.com/cdeletre/txtpms), donde se explica cómo añadir el módulo correspondiente a HackRf One en Gnu-Radio y como se debe aumentar la frecuencia de muestro para poder transmitir la señal. 
+
+El envío de la señal se puede realizar mediante el uso de *hackrf_transfer* especificando la frecuencia de muestreo a la especificada al generar la señal y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
+````
+    hackrf_transfer -R -t simu_tpms_2500k.cs8 -f 433920000 -s 2500000 -x 0
+````
 
 
 
