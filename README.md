@@ -151,7 +151,7 @@ El envío de la señal se puede realizar mediante el uso de *hackrf_transfer* es
     hackrf_transfer -R -t simu_tpms_2500k.cs8 -f 433920000 -s 2500000 -x 0
 ````
 
- La transmisiones de radio pueden estar permitidas o no dependiendo de la region. En el caso de España la tranmisión en las bandas de frecuencia de [410MHz--440MH], esta calificada en el [**BOE**](https://www.boe.es/buscar/act.php?id=BOE-A-2013-4845) para uso comun (C) y especial (E). Por lo que esta permitido transmitir la señal mediante el uso de HackRF One.
+ La transmisiones de radio pueden estar permitidas o no dependiendo de la region. En el caso de España la tranmisión en las bandas de frecuencia de [410MHz--440MH] esta calificada en el [**BOE**](https://www.boe.es/buscar/act.php?id=BOE-A-2013-4845) para uso comun (C) y especial (E). Por lo que esta permitido transmitir la señal mediante el uso de HackRF One.
 
 
 
