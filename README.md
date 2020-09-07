@@ -1,7 +1,7 @@
 # TFG UCM 2020
 ## Estudio de la seguridad del protocolo TPMS / Vulnerabilities in the TPMS protocol
 
-En este repositorio se encuentra el código utilizado para generar la señal adecuada para los dispositivos TPMS Citroën y Toyota. Para generar dicha señal se utiliza Matlab para la codificación y Gnu-Radio para la modulación. Para comprobar la viabilidad de transmisión de nuestra señal se utiliza Inspectrum y el protocolo RTL_433.
+En este repositorio se encuentra el código utilizado para generar la señal adecuada para los dispositivos TPMS Citroën y Toyota. Para generar dicha señal se utiliza Matlab para la codificación y Gnu-Radio para la modulación. Para comprobar la viabilidad de transmisión de nuestra señal se utiliza Inspectrum y el software[**rtl_433**](https://github.com/merbanan/rtl_433).
 
 # Instalación de los diferentes entornos
 **rtl_sdr**
@@ -18,7 +18,7 @@ sudo ldconfig
 ````
 **rtl_433**
 
-El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rtl_433.git, este software de código abierto mediante el uso de un dispositivo SDR permite demodular y decodificar señales en un amplio rango de frecuencias. En este proyecto se utiliza con el fin de comprobar la validez de la señal que se generará con Gnu-Radio y para poder ver los datos transmitidos por los sistemas TPMS.
+El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rtl_433.git, este software de código abierto y mediante el uso de un dispositivo SDR permite demodular y decodificar señales en un amplio rango de frecuencias. En este proyecto se utiliza con el fin de comprobar la validez de la señal que se generará con Gnu-Radio y para poder ver los datos transmitidos por los sistemas TPMS.
 
 *Instalación*
 ````
@@ -32,7 +32,7 @@ El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rt
 ````
 **Inspectrum**
 
-El repositorio oficial de Inspectrum se encuentra en https://github.com/miek/inspectrum. Inspectrum facilita herramientas para poder obtener símbolos de una señal grabada. Se utilizará para comprobar la modulación de las señales transmitidas por los sistemas TPMS.
+El repositorio oficial de Inspectrum se encuentra en https://github.com/miek/inspectrum. Inspectrum facilita herramientas para poder obtener símbolos de una señal grabada, este se utilizará para comprobar la modulación de las señales transmitidas por los sistemas TPMS.
 
 *Instalación*
 ````
@@ -49,7 +49,7 @@ El repositorio oficial de Inspectrum se encuentra en https://github.com/miek/ins
 ````
 **Gnu-Radio**
 
-Gnu-Radio proporciona un amplio kit de herramientas para generar señales. Se utilizará para modular digitalmente los datos provenientes de un archivo binario.
+Gnu-Radio proporciona un amplio kit de herramientas para generar señales, este se utilizará para modular digitalmente los datos provenientes de un archivo binario.
 
 *Instalación*
 ````
@@ -64,7 +64,7 @@ SoX facilita herramientas para la escritura y lectura de señales de audio. Se u
 sudo apt install sox
 ````
 **GQRX**
-GQRX permite la escucha de señales en un amplio rango de frecuencias. En el proyecto se utilizará para inspeccionar visualmente las señales TPMS y escuchar el sonido característico de los dispositivos que transmiten a 433 MHz.
+GQRX permite la escucha de señales en un amplio rango de frecuencias. En el proyecto se utilizará para inspeccionar visualmente las señales TPMS y escuchar el sonido característico de los dispositivos que transmiten a 433MHz.
 *Instalación*
 ````
 sudo apt update -y
@@ -80,27 +80,27 @@ El dongle SDR que se ha utilizado para poder realizar el proyecto es como el rep
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/dongle.jpg" height="200" width="200">
 
     
-La configuración que necesita el GQRX para poder captar señales mediante el dongle SDR será la que se muestra en la siguiente imagen:
+La configuración que necesita el GQRX para poder capturar señales mediante el dongle SDR será la que se muestra en la siguiente imagen:
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png" height="358" width="211">
 
 
-De esta forma si presionamos el botón play de la interfaz de GQRX, el dispositivo SDR comenzará a captar las señales. El siguiente paso será sintonizar la frecuencia 433 MHz, después de esto, si captamos una señal de tipo TPMS en la interfaz veremos un espectro frecuencia como el siguiente:  
+De esta forma si presionamos el botón play de la interfaz de GQRX, el dispositivo SDR comenzará a capturar las señales. El siguiente paso será sintonizar las bandas de frecuencia de 433MHz, después de esto, si captamos una señal de tipo TPMS en la interfaz veremos un espectro frecuencia como el siguiente:  
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX.png" height="550" width="750">
 
-Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso del protocolo Rtl_433. Por último, con la señal grabada se puede realizar ingeniería inversa y poder obtener la codificación y la modulación del dispositivo. La demodulación se puede hacer mediante Inspectrum, obteniendo como resultado un flujo de bits. Seleccionando el tipo de modulación y seleccionando el ancho de símbolo se puede obtener un flujo de bits de la siguiente forma:
+Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso del protocolo Rtl_433. Por último, con la señal grabada se puede realizar ingeniería inversa y poder obtener la codificación y la modulación del dispositivo. La demodulación se puede hacer mediante Inspectrum, obteniendo como resultado un flujo de bits. Seleccionando el tipo de modulación y fijando el ancho de símbolo se puede obtener un flujo de bits de la siguiente forma:
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Inspectrum.png" height="550" width="750">
 
 
-# Como generar señales 
+# Cómo generar señales 
 
 En este proyecto se va a llevar a cabo la construcción de la trama y la generación de la señal para los dispositivos TPMS pertenecientes a los fabricantes Toyota y Citroën.
 
 - Construcción de la trama de datos:
 
-Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada han sido obtenidos del protocolo [**rtl_433**](https://github.com/merbanan/rtl_433).
+Los aspectos como el formato de trama de estos dispositivos y la modulación utilizada han sido obtenidos del software [**rtl_433**](https://github.com/merbanan/rtl_433).
 
 **Citroën**
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Citroen-Frame.png">
@@ -113,11 +113,11 @@ Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee fo
 
 **Citroën**
 
-El dispositivo Citroën utiliza una codificación Manchester, el código de dicha codificación la podemos encontrar en el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecución del archivo *CitroenTPMS.m*.
+El dispositivo Citroën utiliza una codificación Manchester, el código de esta codificación la podemos encontrar en el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la interfaz de Matlab con la ejecución del archivo *CitroenTPMS.m*.
 
 **Toyota**
 
-El dispositivo Toyota utiliza una codificación Manchester diferencial, el código de dicha codificación la podemos encontrar en el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecución del archivo *ToyotaTPMS.m*. Además, el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
+El dispositivo Toyota utiliza una codificación Manchester diferencial, el código de esta codificación la podemos encontrar en el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecución del archivo *ToyotaTPMS.m*. Además, el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
 
 - Modulación de la señal:
 
@@ -128,6 +128,9 @@ Tras generar la trama codificada con la interfaz de Matlab se debe pasar a modul
 El diagrama de bloques de Gnu-Radio para la modulación de la señal en FSK está inspirado en [**TXTPMS**](https://github.com/cdeletre/txtpms)
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/gnu-radio.png" height="550" width="750">
+
+Se pueden observar tres fases diferenciadas: lectura del archivo binario que almacena la trama codificada, modulación digital de los datos y escritura de la señal modulada.
+Para la lectura del archivo deberemos editar en el módulo ``File Source`` el parámetro correspondiente al nombre de archivo. De la misma forma debemos editar el módulo ``File Sink`` introduciendo el nombre del fichero de salida.
 
 -Comprobar la señal con [**rtl_433**](https://github.com/merbanan/rtl_433):
 
