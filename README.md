@@ -134,7 +134,7 @@ Para la lectura del archivo deberemos editar en el módulo ``File Source`` el pa
 
 -Comprobar la señal con [**rtl_433**](https://github.com/merbanan/rtl_433):
 
-Para comprobar la señal se usará el software rtl_433. Este software proporciona la capacidad de demodular señales mostrando la información que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavía no es apta para poder ser demodulada por rtl_433, la señal es muy rápida y se necesita cierta información previa sobre el muestro para poder demodular/descodificar la señal, por este motivo es necesario añadir silencio al principio y al final de la señal con una frecuencia de muestreo de 250k . Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado *./Sox-silence-script/Sox-Silence.sh* que se encargará de realizar esta función, como parámetros recibe dos nombres de archivo, el primero será el archivo con la señal modulada y el segundo será el archivo destino que contendrá la señal con el silencio que se busca añadir.
+Para comprobar la señal se usará el software rtl_433. Este software proporciona la capacidad de demodular señales mostrando la información que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavía no es apta para poder ser demodulada por rtl_433, la señal es muy rápida y se necesita cierta información previa sobre el muestro para poder demodular/descodificar la señal. Por este motivo es necesario añadir silencio al principio y al final de la señal con una frecuencia de muestreo de 250k. Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado *./Sox-silence-script/Sox-Silence.sh* que se encargará de realizar esta función, como parámetros recibe dos nombres de archivo, el primero será el archivo con la señal modulada y el segundo será el archivo destino que contendrá la señal con el silencio que se pretende añadir.
 
 Despues de añadir silencio, si inspeccionamos la señal con Inspectrum, la señal debería tener un aspecto como el siguiente:
 
@@ -144,14 +144,14 @@ Si pasamos a analizar la señal con rtl_433, en el caso de Toyota la informació
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/citroen_normal.png">
 
-Para finalizar este estudio, se podría llevar a cabo la emisión vía radioeléctrica de la señal que acabamos de generar, para esto se puede utilizar el dispositivo HackRf One. Para saber cómo realizar este proceso, se puede obtener información del repositorio de Ciryl [**TXTPMS**](https://github.com/cdeletre/txtpms), donde se explica cómo añadir el módulo correspondiente a HackRf One en Gnu-Radio y como se debe aumentar la frecuencia de muestro para poder transmitir la señal. 
+Para finalizar este estudio, se podría llevar a cabo la emisión vía radioeléctrica de la señal que acabamos de generar, para esto se puede utilizar el dispositivo HackRf One. Para saber cómo realizar este proceso, se puede obtener información del repositorio de Ciryl [**TXTPMS**](https://github.com/cdeletre/txtpms), donde se explica cómo añadir el módulo correspondiente a HackRF One en Gnu-Radio y como se debe aumentar la frecuencia de muestro para poder transmitir la señal. 
 
 El envío de la señal se puede realizar mediante el uso de *hackrf_transfer* especificando la frecuencia de muestreo a la especificada al generar la señal y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
 ````
     hackrf_transfer -R -t simu_tpms_2500k.cs8 -f 433920000 -s 2500000 -x 0
 ````
 
-
+ La transmisiones de radio pueden estar permitidas o no dependiendo de la region. En el caso de España la tranmision en las bandas de frecuencia de [410MHz--440MH], esta calificada en el [**BOE**](https://www.boe.es/buscar/act.php?id=BOE-A-2013-4845) para uso comun (C) y especial (E). Por lo que esta permitido transmitir la señal mediante el uso de HackRF One.
 
 
 
