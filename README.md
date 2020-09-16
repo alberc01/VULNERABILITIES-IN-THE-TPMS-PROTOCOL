@@ -65,6 +65,7 @@ SoX facilita herramientas para la escritura y lectura de señales de audio. Se u
 sudo apt install sox
 ````
 **GQRX**
+
 GQRX permite la escucha de señales en un amplio rango de frecuencias. En el proyecto se utilizará para inspeccionar visualmente las señales TPMS y escuchar el sonido característico de los dispositivos que transmiten a 433MHz.
 *Instalación*
 ````
