@@ -5,6 +5,7 @@ En este repositorio se encuentra el código utilizado para generar la señal ade
 
 # Instalación de los diferentes entornos
 **rtl_sdr**
+
 Rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizará para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
 
 *Instalación*
