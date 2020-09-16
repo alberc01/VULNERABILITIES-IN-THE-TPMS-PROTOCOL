@@ -6,7 +6,7 @@ En este repositorio se encuentra el código utilizado para generar la señal ade
 # Instalación de los diferentes entornos
 **rtl_sdr**
 
-Rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizará para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
+rtl_sdr permite el uso de software junto a un receptor SDR. Se utilizará para el uso de herramientas como GQRX con el objetivo de inspeccionar el aspecto de las señales transmitidas por los sistemas TPMS.
 
 *Instalación*
 ````
@@ -19,7 +19,7 @@ sudo ldconfig
 ````
 **rtl_433**
 
-El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rtl_433.git, este software de código abierto y mediante el uso de un dispositivo SDR permite demodular y decodificar señales en un amplio rango de frecuencias. En este proyecto se utiliza con el fin de comprobar la validez de la señal que se generará con Gnu-Radio y para poder ver los datos transmitidos por los sistemas TPMS.
+El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rtl_433.git, este software de código abierto mediante el uso de un dispositivo SDR permite demodular y decodificar señales en un amplio rango de frecuencias. En este proyecto se utiliza con el fin de comprobar la validez de la señal que se generará con Gnu-Radio y para poder ver los datos transmitidos por los sistemas TPMS.
 
 *Instalación*
 ````
@@ -147,7 +147,7 @@ Si pasamos a analizar la señal con rtl_433, en el caso de Toyota la informació
 
 Para finalizar este estudio, se podría llevar a cabo la emisión vía radioeléctrica de la señal que acabamos de generar, para esto se puede utilizar el dispositivo HackRf One. Para saber cómo realizar este proceso, se puede obtener información del repositorio de Ciryl [**TXTPMS**](https://github.com/cdeletre/txtpms), donde se explica cómo añadir el módulo correspondiente a HackRF One en Gnu-Radio y como se debe aumentar la frecuencia de muestro para poder transmitir la señal. 
 
-El envío de la señal se puede realizar mediante el uso de *hackrf_transfer* especificando la frecuencia de muestreo a la especificada al generar la señal y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
+El envío de la señal se puede realizar mediante el uso de *hackrf_transfer* especificando la frecuencia de muestreo a 250k (dependiendo de la señal) y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
 ````
     hackrf_transfer -R -t simu_tpms_2500k.cs8 -f 433920000 -s 2500000 -x 0
 ````
