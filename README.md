@@ -1,7 +1,7 @@
 # TFG UCM 2020
 ## Estudio de la seguridad del protocolo TPMS / Vulnerabilities in the TPMS protocol
 
-En este repositorio se encuentra el código utilizado para generar la señal adecuada para los dispositivos TPMS Citroën y Toyota. Para generar dicha señal se utiliza Matlab para la codificación y Gnu-Radio para la modulación. Para comprobar la viabilidad de transmisión de nuestra señal se utiliza Inspectrum y el software[**rtl_433**](https://github.com/merbanan/rtl_433).
+En este repositorio se encuentra el código utilizado para generar la señal adecuada para los dispositivos TPMS Citroën y Toyota. Para generar dicha señal se utiliza Matlab para la codificación y Gnu-Radio para la modulación. Para comprobar la viabilidad de transmisión de nuestra señal se utiliza Inspectrum y el software [**rtl_433**](https://github.com/merbanan/rtl_433).
 
 # Instalación de los diferentes entornos
 **rtl_sdr**
