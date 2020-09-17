@@ -148,7 +148,7 @@ Si pasamos a analizar la señal con rtl_433, en el caso de Toyota la informació
 
 Para finalizar este estudio, se podría llevar a cabo la emisión de la señal que acabamos de generar por vía radioeléctrica, para esto se puede utilizar el dispositivo HackRf One. Para saber cómo realizar este proceso, se puede obtener más información en el repositorio de Ciryl [**TXTPMS**](https://github.com/cdeletre/txtpms), donde se explica cómo añadir el módulo correspondiente a HackRF One en Gnu-Radio y como se debe aumentar la frecuencia de muestreo para poder transmitir la señal. 
 
-El envío de la señal se puede realizar mediante el uso del comando *hackrf_transfer* especificando la frecuencia de muestreo a 250k (misma frecuencia central que la señal generada) y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
+El envío de la señal se puede realizar mediante el uso del comando *hackrf_transfer* especificando la frecuencia de muestreo a 250k (misma frecuencia de muestreo que la señal generada) y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
 ````
     hackrf_transfer -R -t simu_tpms_2500k.cs8 -f 433920000 -s 2500000 -x 0
 ````
