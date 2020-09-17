@@ -33,7 +33,7 @@ El repositorio oficial de rtl_433 se encuentra en https://github.com/merbanan/rt
 ````
 **Inspectrum**
 
-El repositorio oficial de Inspectrum se encuentra en https://github.com/miek/inspectrum. Inspectrum facilita herramientas para poder obtener símbolos de una señal grabada, este se utilizará para comprobar la modulación de las señales transmitidas por los sistemas TPMS.
+El repositorio oficial de Inspectrum se encuentra en https://github.com/miek/inspectrum. Inspectrum facilita herramientas para poder obtener símbolos de una señal grabada, y se utilizará para comprobar la modulación de las señales transmitidas por los sistemas TPMS.
 
 *Instalación*
 ````
@@ -50,7 +50,7 @@ El repositorio oficial de Inspectrum se encuentra en https://github.com/miek/ins
 ````
 **Gnu-Radio**
 
-Gnu-Radio proporciona un amplio kit de herramientas para generar señales, este se utilizará para modular digitalmente los datos provenientes de un archivo binario.
+Gnu-Radio proporciona un amplio kit de herramientas para generar señales, y se utilizará para modular digitalmente los datos provenientes de un archivo binario.
 
 *Instalación*
 ````
@@ -75,7 +75,7 @@ sudo apt install -y gqrx-sdr
 
 # Análisis de señales 
 
-Mediante GQRX, un dongle SDR y Inspectrum se puede inspeccionar el aspecto y el sonido de la señal y por último obtener el flujo de bits que transmite.
+Mediante GQRX, un dongle SDR e Inspectrum se puede inspeccionar el aspecto y el sonido de la señal, y por último obtener el flujo de bits que transmite.
 
 El dongle SDR que se ha utilizado para poder realizar el proyecto es como el representado en la siguiente imagen:
 
@@ -87,11 +87,11 @@ La configuración que necesita el GQRX para poder capturar señales mediante el 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX_CONFIG.png" height="358" width="211">
 
 
-De esta forma si presionamos el botón play de la interfaz de GQRX, el dispositivo SDR comenzará a capturar las señales. El siguiente paso será sintonizar las bandas de frecuencia de 433MHz, después de esto, si captamos una señal de tipo TPMS en la interfaz veremos un espectro frecuencia como el siguiente:  
+De esta forma, si presionamos el botón play de la interfaz de GQRX, el dispositivo SDR comenzará a capturar las señales. El siguiente paso será sintonizar las bandas de frecuencia de 433MHz, después de esto, si captamos una señal de tipo TPMS en la interfaz veremos un espectro frecuencia como el siguiente:  
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/GQRX.png" height="550" width="750">
 
-Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso del protocolo Rtl_433. Por último, con la señal grabada se puede realizar ingeniería inversa y poder obtener la codificación y la modulación del dispositivo. La demodulación se puede hacer mediante Inspectrum, obteniendo como resultado un flujo de bits. Seleccionando el tipo de modulación y fijando el ancho de símbolo se puede obtener un flujo de bits de la siguiente forma:
+Para grabar la señal se puede utilizar GQRX, pero es más recomendable el uso del protocolo rtl_433. Por último, con la señal grabada se puede realizar ingeniería inversa y poder obtener la codificación y la modulación del dispositivo. La demodulación se puede hacer mediante Inspectrum, obteniendo como resultado un flujo de bits. Seleccionando el tipo de modulación y fijando el ancho de símbolo se puede obtener un flujo de bits de la siguiente forma:
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/Inspectrum.png" height="550" width="750">
 
@@ -115,11 +115,11 @@ Mediante la interfaz de Matlab se pasarán los datos de la trama que se desee fo
 
 **Citroën**
 
-El dispositivo Citroën utiliza una codificación Manchester, el código de esta codificación la podemos encontrar en el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la interfaz de Matlab con la ejecución del archivo *CitroenTPMS.m*.
+El dispositivo Citroën utiliza una codificación Manchester, la implementación de esta codificación se encuentra en el archivo *ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la interfaz de Matlab con la ejecución del archivo *CitroenTPMS.m*.
 
 **Toyota**
 
-El dispositivo Toyota utiliza una codificación Manchester diferencial, el código de esta codificación la podemos encontrar en el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecución del archivo *ToyotaTPMS.m*. Además, el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
+El dispositivo Toyota utiliza una codificación Manchester diferencial, la implementación de esta codificación la podemos encontrar en el archivo *Differential_ManchesterEncoder.m*. El formato de la trama lo podemos introducir mediante la ejecución del archivo *ToyotaTPMS.m*. Además, el CRC-8 utilizado para calcular el checksum lo podemos encontrar en el archivo *crc8.m*.
 
 - Modulación de la señal:
 
@@ -127,7 +127,7 @@ Tras generar la trama codificada con la interfaz de Matlab se debe pasar a modul
 
 **Diagrama de bloques Gnu-Radio**
 
-El diagrama de bloques de Gnu-Radio para la modulación de la señal en FSK está inspirado en [**TXTPMS**](https://github.com/cdeletre/txtpms)
+El diagrama de bloques de Gnu-Radio para la modulación de la señal en FSK está basado en la modulación del repositorio [**TXTPMS**](https://github.com/cdeletre/txtpms).
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/gnu-radio.png" height="550" width="750">
 
@@ -136,7 +136,7 @@ Para la lectura del archivo deberemos editar en el módulo ``File Source`` el pa
 
 -Comprobar la señal con [**rtl_433**](https://github.com/merbanan/rtl_433):
 
-Para comprobar la señal se usará el software rtl_433. Este software proporciona la capacidad de demodular señales mostrando la información que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavía no es apta para poder ser demodulada por rtl_433, la señal es muy rápida y se necesita cierta información previa sobre el muestro para poder demodular/descodificar la señal. Por este motivo es necesario añadir silencio al principio y al final de la señal con una frecuencia de muestreo de 250k. Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado *./Sox-silence-script/Sox-Silence.sh* que se encargará de realizar esta función, como parámetros recibe dos nombres de archivo, el primero será el archivo con la señal modulada y el segundo será el archivo destino que contendrá la señal con el silencio que se pretende añadir.
+Para comprobar la señal se usará el software rtl_433. Este software proporciona la capacidad de demodular señales mostrando la información que transmiten por consola. La señal que se ha generado mediante Gnu-Radio todavía no es apta para poder ser demodulada por rtl_433, la señal es muy rápida y se necesita cierta información previa sobre el muestreo para poder demodular y descodificar la señal. Por este motivo es necesario añadir silencio al principio y al final de la señal con una frecuencia de muestreo de 250k. Para llevar a cabo este proceso se hará uso de SoX. En este repositorio se encuentra un pequeño script llamado *./Sox-silence-script/Sox-Silence.sh* que se encargará de realizar esta función, como parámetros recibe dos nombres de archivo, el primero será el archivo con la señal modulada y el segundo será el archivo destino que contendrá la señal con el silencio que se pretende añadir.
 
 Despues de añadir silencio, si inspeccionamos la señal con Inspectrum, la señal debería tener un aspecto como el siguiente:
 
@@ -146,14 +146,14 @@ Si pasamos a analizar la señal con rtl_433, en el caso de Toyota la informació
 
 <img src="https://github.com/alberc01/VULNERABILITIES-IN-THE-TPMS-PROTOCOL/blob/master/Images/citroen_normal.png">
 
-Para finalizar este estudio, se podría llevar a cabo la emisión vía radioeléctrica de la señal que acabamos de generar, para esto se puede utilizar el dispositivo HackRf One. Para saber cómo realizar este proceso, se puede obtener información del repositorio de Ciryl [**TXTPMS**](https://github.com/cdeletre/txtpms), donde se explica cómo añadir el módulo correspondiente a HackRF One en Gnu-Radio y como se debe aumentar la frecuencia de muestro para poder transmitir la señal. 
+Para finalizar este estudio, se podría llevar a cabo la emisión de la señal que acabamos de generar por vía radioeléctrica, para esto se puede utilizar el dispositivo HackRf One. Para saber cómo realizar este proceso, se puede obtener más información en el repositorio de Ciryl [**TXTPMS**](https://github.com/cdeletre/txtpms), donde se explica cómo añadir el módulo correspondiente a HackRF One en Gnu-Radio y como se debe aumentar la frecuencia de muestreo para poder transmitir la señal. 
 
-El envío de la señal se puede realizar mediante el uso de *hackrf_transfer* especificando la frecuencia de muestreo a 250k (dependiendo de la señal) y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
+El envío de la señal se puede realizar mediante el uso del comando *hackrf_transfer* especificando la frecuencia de muestreo a 250k (misma frecuencia central que la señal generada) y la frecuencia portadora a 433920000MHz. La sintaxis de dicho comando sería la siguiente:
 ````
     hackrf_transfer -R -t simu_tpms_2500k.cs8 -f 433920000 -s 2500000 -x 0
 ````
 
- La transmisiones de radio pueden estar permitidas o no dependiendo de la region. En el caso de España la tranmisión en las bandas de frecuencia de [410MHz--440MH] esta calificada en el [**BOE**](https://www.boe.es/buscar/act.php?id=BOE-A-2013-4845) para uso comun (C) y especial (E). Por esta razon, se puede decir que esta permitido transmitir la señal mediante el uso de HackRF One o cualquier otro dispositivo de emision en la banda 433MHz.
+Las transmisiones de radio pueden estar permitidas o no dependiendo de la region. En el caso de España la tranmisión en las bandas de frecuencia de [410MHz--440MH] esta calificada en el [**BOE**](https://www.boe.es/buscar/act.php?id=BOE-A-2013-4845) para uso comun (C) y especial (E). Por esta razon, se puede decir que esta permitido transmitir la señal mediante el uso de HackRF One o cualquier otro dispositivo que permita emitir en la banda 433MHz.
 
 
 
