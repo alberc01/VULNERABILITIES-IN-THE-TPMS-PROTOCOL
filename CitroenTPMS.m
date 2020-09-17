@@ -1,3 +1,5 @@
+% Based on rtl_433 device source code from 
+% https://github.com/merbanan/rtl_433/rtl_433/src/devices/tpms_citroen.c
 function CitroenTPMS(STATUS,ID,FLAGS,REPEAT,PRESSURE,TEMPERATURE,BATTERY,FILENAME)
     %% EJEMPLO DE VARIABLES DE ENTRADA
     % TRAMA NORMAL
